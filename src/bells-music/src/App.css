@@ -1,0 +1,59 @@
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+.index-list {
+  max-width: 800px;
+  text-align: left;
+  font-size: 1.5em;
+  margin: auto auto;
+}
+
+.index-list ul {
+  list-style: none;
+}
+
+.song-body {
+  max-width: 1200px;
+  margin: auto auto;
+}
+
+.song-body > div {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.note {
+  margin: 50px 20px;
+}
+
+.note .note-content {
+  padding: 35px;
+  font-size: 2em;
+  border-radius: 50%;
+}
+
+.note .note-octave-5 {
+  border: 5px solid black;
+  padding: 30px;
+}
+
+.note .note-octave {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+  bottom: -0.25em;
+}
+
+.note .note-lyric {
+  margin-top: 5px;
+  font-size: 1.5em;
+  text-align: center;
+  white-space: nowrap;
+}
