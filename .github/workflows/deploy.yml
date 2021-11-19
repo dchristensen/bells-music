@@ -32,6 +32,7 @@ jobs:
           path: |
             src/bells/build
             src/bells/public
+            src/bells/*
 
   deploy:
     runs-on: ubuntu-latest

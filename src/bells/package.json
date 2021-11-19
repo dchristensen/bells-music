@@ -3,6 +3,7 @@
   "name": "remix-app-template",
   "description": "",
   "license": "",
+  "main": "build/index.js",
   "scripts": {
     "prebuild": "npm run build:css",
     "build": "remix build",
