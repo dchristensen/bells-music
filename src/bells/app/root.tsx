@@ -21,7 +21,7 @@ function Document({
     <html lang="en" className="h-screen">
       <head>
         <meta charSet="utf-8" />
-        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="icon" href="/favicon.ico" type="image/ico" />
         {title ? <title>{title}</title> : null}
         <Meta />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
