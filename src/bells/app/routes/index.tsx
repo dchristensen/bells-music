@@ -8,8 +8,8 @@ import Handbell from "../components/Handbell";
 
 export let meta: MetaFunction = () => {
   return {
-    title: "Remix Starter",
-    description: "Welcome to remix!",
+    title: "Christmas Bells Songs",
+    description: "Music to play Christmas songs on bells.",
   };
 };
 

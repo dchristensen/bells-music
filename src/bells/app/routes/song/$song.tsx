@@ -5,10 +5,10 @@ import Note from "~/components/Note";
 import { ArrowLeftIcon } from "@heroicons/react/outline";
 import songs, { SongInfo } from "~/data/songs";
 
-export let meta: MetaFunction = () => {
+export let meta: MetaFunction = ({ data }) => {
   return {
-    title: "Remix Starter",
-    description: "Welcome to remix!",
+    title: "Christmas Bells Songs - " + data.title,
+    description: "Music to play Christmas songs on bells.",
   };
 };
 
