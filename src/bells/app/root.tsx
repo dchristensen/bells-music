@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import type { LinksFunction } from "remix";
 import { Links, LiveReload, Meta, Scripts, useCatch } from "remix";
 import Layout from "./components/Layout";
+import ScrollToTop from "./components/ScrollToTop";
 import stylesUrl from "./styles/app.css";
 
 export let links: LinksFunction = () => {
@@ -27,6 +28,7 @@ function Document({
         <Links />
       </head>
       <body className="font-sans bg-gray-600">
+        <ScrollToTop />
         <Layout>{children}</Layout>
         <Scripts />
         {process.env.NODE_ENV === "development" && <LiveReload />}
