@@ -1,6 +1,6 @@
 import { ExclamationIcon } from "@heroicons/react/solid";
 import { Outlet } from "react-router-dom";
-import type { LinksFunction } from "remix";
+import { LinksFunction, ScrollRestoration } from "remix";
 import { Links, LiveReload, Meta, Scripts, useCatch } from "remix";
 import Layout from "./components/Layout";
 import ScrollToTop from "./components/ScrollToTop";
@@ -28,8 +28,8 @@ function Document({
         <Links />
       </head>
       <body className="font-sans bg-gray-600">
-        <ScrollToTop />
         <Layout>{children}</Layout>
+        <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === "development" && <LiveReload />}
       </body>
