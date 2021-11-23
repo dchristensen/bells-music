@@ -1,9 +1,15 @@
 import { ExclamationIcon } from "@heroicons/react/solid";
 import { Outlet } from "react-router-dom";
-import { LinksFunction, ScrollRestoration } from "remix";
-import { Links, LiveReload, Meta, Scripts, useCatch } from "remix";
+import {
+  Links,
+  LinksFunction,
+  LiveReload,
+  Meta,
+  Scripts,
+  ScrollRestoration,
+  useCatch,
+} from "remix";
 import Layout from "./components/Layout";
-import ScrollToTop from "./components/ScrollToTop";
 import stylesUrl from "./styles/app.css";
 
 export let links: LinksFunction = () => {
