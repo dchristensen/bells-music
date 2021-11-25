@@ -52,9 +52,9 @@ function CardGrid() {
   let data = useLoaderData<Library>();
 
   return (
-    <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+    <div className="py-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
       {data.songs.map((s) => (
-        <SongCard {...s} />
+        <SongCard key={s.url} {...s} />
       ))}
     </div>
   );
