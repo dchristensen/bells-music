@@ -29,6 +29,7 @@ function Document({
         <meta charSet="utf-8" />
         <link rel="icon" href="/favicon.ico" type="image/ico" />
         {title ? <title>{title}</title> : null}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
         <Links />
