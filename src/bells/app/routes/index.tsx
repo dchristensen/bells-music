@@ -74,7 +74,7 @@ function SongCard({ title, url }: SongCardProps) {
         <Link to={"/song/" + url} className="focus:outline-none">
           <span className="absolute inset-0" aria-hidden="true" />
           <p className="text-sm font-medium text-gray-900">{title}</p>
-          <p className="text-sm text-gray-500 truncate">{title}</p>
+          <p className="text-sm text-gray-500 truncate"></p>
         </Link>
       </div>
     </div>

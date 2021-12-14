@@ -33,7 +33,7 @@ export default function Song() {
         >
           <ArrowLeftIcon className="w-5 h-5 md:w-7 md:h-7" />
         </Link>
-        <h1 className="text-3xl leading-4 md:text-3xl text-center md:leading-7 font-medium text-gray-900">
+        <h1 className="text-lg leading-4 sm:text-xl md:text-3xl text-center md:leading-7 font-medium text-gray-900">
           {data.title}
         </h1>
       </div>
