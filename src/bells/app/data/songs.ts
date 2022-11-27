@@ -1,13 +1,19 @@
+import { Library, SongInfo } from "~/models";
+
 import Angels from "./songs/angels_we_have_heard_on_high";
 import AuldLangSyne from "./songs/auld_lang_syne";
 import Away from "./songs/away_in_a_manager";
 import ChristmasBells from "./songs/christmas_bells";
+import ChristmasBellsDMajor from "./songs/christmas_bells_d_major";
+import ChristmasBellsObligato from "./songs/christmas_bells_obligato";
 import Deck from "./songs/deck_the_halls";
 import GoodKing from "./songs/good_king_wenceslas";
 import GoTellIt from "./songs/go_tell_it_on_the_mountain";
 import HappyBirthday from "./songs/happy_birthday";
 import Hark from "./songs/hark_the_herald_angels_sing";
+import ItsAutumntime from "./songs/its_autumntime";
 import IHeardTheBells from "./songs/i_heard_the_bells_on_christmas_day";
+import IWillWalkWithJesus from "./songs/i_will_walk_with_jesus";
 import Wonder from "./songs/i_wonder_as_i_wander";
 import JingleBells from "./songs/jingle_bells";
 import Jolly from "./songs/jolly_old_saint_nicholas";
@@ -25,37 +31,14 @@ import HouseTop from "./songs/up_on_the_house_top";
 import WishYou from "./songs/we_wish_you_a_merry_christmas";
 import WithWonderingAwe from "./songs/with_wondering_awe";
 
-export type NoteValue = "A" | "B" | "C" | "D" | "E" | "F" | "G";
-
-export enum Incidental {
-  None,
-  Sharp,
-  Flat,
-}
-
-export interface Note {
-  note: NoteValue;
-  octave: number;
-  incidental?: Incidental;
-  lyric?: string | null;
-}
-
-export interface SongInfo {
-  title: string;
-  url: string;
-  notes: Note[];
-}
-
-export interface Library {
-  songs: SongInfo[];
-}
-
 const library: Library = {
   songs: [
     Angels as SongInfo,
     AuldLangSyne as SongInfo,
     Away as SongInfo,
     ChristmasBells as SongInfo,
+    ChristmasBellsDMajor as SongInfo,
+    ChristmasBellsObligato as SongInfo,
     Deck as SongInfo,
     FirstNoel as SongInfo,
     GoodKing as SongInfo,
@@ -63,6 +46,8 @@ const library: Library = {
     HappyBirthday as SongInfo,
     Hark as SongInfo,
     IHeardTheBells as SongInfo,
+    IWillWalkWithJesus as SongInfo,
+    ItsAutumntime as SongInfo,
     Wonder as SongInfo,
     JingleBells as SongInfo,
     Joy as SongInfo,
