@@ -1,9 +1,10 @@
-import React from "react";
-import { json, Link, LoaderFunction, MetaFunction, useLoaderData } from "remix";
-import Layout from "~/components/Layout";
+import { ArrowLeftIcon } from "@heroicons/react/24/outline";
+import type { LoaderFunction, MetaFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
+import { Link, useLoaderData } from "@remix-run/react";
 import Note from "~/components/Note";
-import { ArrowLeftIcon } from "@heroicons/react/outline";
-import songs, { SongInfo } from "~/data/songs";
+import songs from "~/data/songs";
+import type { SongInfo } from "~/models";
 
 export let meta: MetaFunction = ({ data }) => {
   return {
@@ -27,10 +28,7 @@ export default function Song() {
   return (
     <div className="w-full bg-white min-h-screen">
       <div className="relative py-5 border-b border-gray-200">
-        <Link
-          to="../"
-          className="absolute inline-block w-8 inset-x-5 print:hidden"
-        >
+        <Link to="../" className="absolute inline-block w-8 inset-x-5 print:hidden">
           <ArrowLeftIcon className="w-5 h-5 md:w-7 md:h-7" />
         </Link>
         <h1 className="text-lg leading-4 sm:text-xl md:text-3xl text-center md:leading-7 font-medium text-gray-900">
