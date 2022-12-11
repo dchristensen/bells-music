@@ -1,9 +1,9 @@
-import { MusicNoteIcon } from "@heroicons/react/outline";
+import { MusicalNoteIcon } from "@heroicons/react/24/outline";
+import type { LoaderFunction, MetaFunction } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
 import { Link } from "react-router-dom";
-import type { LoaderFunction, MetaFunction } from "remix";
-import { useLoaderData } from "remix";
-import Layout from "~/components/Layout";
-import songs, { Library, SongInfo } from "~/data/songs";
+import songs from "~/data/songs";
+import type { Library, SongInfo } from "~/models";
 import Handbell from "../components/Handbell";
 
 export let meta: MetaFunction = () => {
@@ -68,7 +68,7 @@ function SongCard({ title, url }: SongCardProps) {
       className="relative mx-2 sm:mx-0 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
     >
       <div className="flex-shrink-0">
-        <MusicNoteIcon className="h-10 w-10 rounded-full" />
+        <MusicalNoteIcon className="h-10 w-10 rounded-full" />
       </div>
       <div className="flex-1 min-w-0">
         <Link to={"/song/" + url} className="focus:outline-none">
