@@ -1,5 +1,5 @@
 # Build Image
-FROM node:lts as build
+FROM node:18 as build
 
 WORKDIR /usr/src/app
 COPY package*.json ./
@@ -10,7 +10,7 @@ RUN npm run build
 
 
 # Deployed Image
-FROM node:lts-alpine
+FROM node:18-alpine
 
 WORKDIR /usr/src/app
 
