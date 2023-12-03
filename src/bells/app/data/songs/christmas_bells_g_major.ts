@@ -1,8 +1,8 @@
 import { Incidental } from "../../models";
 
 export default {
-  title: "Christmas Bells in D Major",
-  url: "christmas-bells-d-major",
+  title: "Christmas Bells in G Major",
+  url: "christmas-bells-g-major",
   notes: [
     { note: "B", octave: 4, lyric: "Christ-" },
     { note: "B", octave: 4, lyric: "mas" },

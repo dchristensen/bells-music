@@ -1,10 +1,10 @@
-import { Library, SongInfo } from "~/models";
+import type { Library, SongInfo } from "~/models";
 
 import Angels from "./songs/angels_we_have_heard_on_high";
 import AuldLangSyne from "./songs/auld_lang_syne";
 import Away from "./songs/away_in_a_manager";
 import ChristmasBells from "./songs/christmas_bells";
-import ChristmasBellsDMajor from "./songs/christmas_bells_d_major";
+import ChristmasBellsGMajor from "./songs/christmas_bells_g_major";
 import ChristmasBellsObligato from "./songs/christmas_bells_obligato";
 import Deck from "./songs/deck_the_halls";
 import GoodKing from "./songs/good_king_wenceslas";
@@ -40,7 +40,7 @@ const library: Library = {
     AuldLangSyne as SongInfo,
     Away as SongInfo,
     ChristmasBells as SongInfo,
-    ChristmasBellsDMajor as SongInfo,
+    ChristmasBellsGMajor as SongInfo,
     ChristmasBellsObligato as SongInfo,
     Deck as SongInfo,
     FirstNoel as SongInfo,
