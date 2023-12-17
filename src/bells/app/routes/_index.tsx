@@ -2,8 +2,10 @@ import { MusicalNoteIcon } from "@heroicons/react/24/outline";
 import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 import Handbell from "~/components/Handbell";
-import songs from "~/data/songs";
-import { Library, SongInfo } from "~/models";
+import songs from "~/data/songs.server";
+import { SongInfo } from "~/models";
+
+type SongMetadata = Omit<SongInfo, "notes">;
 
 export const meta: MetaFunction = () => {
   return [
@@ -18,7 +20,10 @@ export const meta: MetaFunction = () => {
 };
 
 export const loader: LoaderFunction = async () => {
-  return songs;
+  return songs.songs.map((s) => ({
+    title: s.title,
+    url: s.url,
+  }));
 };
 
 export default function Index() {
@@ -53,18 +58,18 @@ function Header() {
 }
 
 function CardGrid() {
-  const data = useLoaderData<Library>();
+  const data = useLoaderData<SongMetadata[]>();
 
   return (
     <div className="py-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-      {data.songs.map((s) => (
+      {data.map((s) => (
         <SongCard key={s.url} {...s} />
       ))}
     </div>
   );
 }
 
-type SongCardProps = SongInfo;
+type SongCardProps = SongMetadata;
 function SongCard({ title, url }: SongCardProps) {
   return (
     <div

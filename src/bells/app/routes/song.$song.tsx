@@ -2,7 +2,7 @@ import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { LoaderFunction, MetaFunction, json } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 import NoteCard from "~/components/Note";
-import songs from "~/data/songs";
+import songs from "~/data/songs.server";
 import { SongInfo } from "~/models";
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
