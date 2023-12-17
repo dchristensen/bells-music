@@ -1,15 +1,23 @@
-import { ExclamationTriangleIcon } from "@heroicons/react/24/solid";
+import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import type { LinksFunction, MetaFunction } from "@remix-run/node";
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch } from "@remix-run/react";
+import {
+  Links,
+  LiveReload,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+  isRouteErrorResponse,
+  useRouteError,
+} from "@remix-run/react";
 import Layout from "./components/Layout";
+import styles from "./tailwind.css";
 
-import styles from "./styles/app.css";
-
-export const meta: MetaFunction = () => ({
-  charset: "utf-8",
-  title: "Christmas Bell Songs",
-  viewport: "width=device-width,initial-scale=1",
-});
+export const meta: MetaFunction = () => [
+  {
+    title: "Christmas Bell Songs",
+  },
+];
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
@@ -22,6 +30,8 @@ function Document({ children, title }: { children: React.ReactNode; title?: stri
     <html lang="en" className="h-screen">
       <head>
         {title === undefined ? null : <title>{title}</title>}
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
       </head>
@@ -43,29 +53,36 @@ export default function App() {
   );
 }
 
-export function CatchBoundary() {
-  let caught = useCatch();
+export function ErrorBoundary() {
+  const error = useRouteError();
 
-  switch (caught.status) {
-    case 401:
-    case 404:
-      return (
-        <Document title={`${caught.status} ${caught.statusText}`}>
-          <ErrorDisplay title={`${caught.status} ${caught.statusText}`} />
-        </Document>
-      );
+  if (isRouteErrorResponse(error)) {
+    switch (error.status) {
+      case 401:
+      case 404:
+        return (
+          <Document title={`${error.status} ${error.statusText}`}>
+            <ErrorDisplay title={`${error.status} ${error.statusText}`} />
+          </Document>
+        );
 
-    default:
-      throw new Error(`Unexpected caught response with status: ${caught.status}`);
+      // Others fall through
+    }
   }
-}
 
-export function ErrorBoundary({ error }: { error: Error }) {
   console.error(error);
+
+  if (error instanceof Error) {
+    return (
+      <Document title="Uh-oh!">
+        <ErrorDisplay title="Application Error" message={error.message} />
+      </Document>
+    );
+  }
 
   return (
     <Document title="Uh-oh!">
-      <ErrorDisplay title="Application Error" message={error.message} />
+      <ErrorDisplay title="Unexpected Error" message="We encountered and unexpected error." />
     </Document>
   );
 }

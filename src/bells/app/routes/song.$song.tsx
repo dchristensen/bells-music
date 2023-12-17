@@ -1,19 +1,20 @@
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
-import type { LoaderFunction, MetaFunction } from "@remix-run/node";
-import { json } from "@remix-run/node";
+import { LoaderFunction, MetaFunction, json } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
-import Note from "~/components/Note";
+import NoteCard from "~/components/Note";
 import songs from "~/data/songs";
-import type { SongInfo } from "~/models";
+import { SongInfo } from "~/models";
 
-export let meta: MetaFunction = ({ data }) => {
-  return {
-    title: "Christmas Bells Songs - " + data.title,
-    description: "Music to play Christmas songs on bells.",
-  };
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  return [
+    {
+      title: "Christmas Bells Songs - " + data.title,
+    },
+    { name: "description", content: "Music to play Christmas songs on bells." },
+  ];
 };
 
-export let loader: LoaderFunction = async ({ params }) => {
+export const loader: LoaderFunction = async ({ params }) => {
   const info = songs.songs.find((s) => s.url === params.song);
   if (info === undefined) {
     throw json("Not Found", { status: 404, statusText: "Not Found" });
@@ -37,7 +38,7 @@ export default function Song() {
       </div>
       <div className="grid grid-cols-4 gap-2 sm:gap-6 lg:grid-cols-6 print:grid-cols-6 md:text-xl">
         {data.notes.map((n, i) => (
-          <Note key={i} {...n} className="col-span-1" />
+          <NoteCard key={i} {...n} className="col-span-1" />
         ))}
       </div>
     </div>

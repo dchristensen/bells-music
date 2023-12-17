@@ -1,5 +1,5 @@
 # Build Image
-FROM node:18 as build
+FROM node:lts as build
 
 WORKDIR /usr/src/app
 COPY package*.json ./
@@ -10,7 +10,7 @@ RUN npm run build
 
 
 # Deployed Image
-FROM node:18-alpine
+FROM node:lts-alpine
 
 WORKDIR /usr/src/app
 
@@ -24,4 +24,4 @@ COPY --from=build /usr/src/app/public ./public
 
 EXPOSE 3000
 
-CMD ./node_modules/.bin/remix-serve ./build
+CMD npx remix-serve ./build/index.js

@@ -1,5 +1,4 @@
-import React from "react";
-import { NoteValue, Note, Incidental } from "~/models";
+import { Incidental, Note, NoteValue } from "~/models";
 
 const NoteColorMap: Record<NoteValue, string> = {
   A: "bg-blue-700 border-blue-900 ",
@@ -24,15 +23,8 @@ export type NoteProps = Note & {
   className?: string;
 };
 
-export default function Note({
-  note,
-  octave,
-  incidental,
-  lyric,
-  className,
-}: NoteProps) {
-  const colorClass =
-    incidental === Incidental.Sharp ? SharpColorMap[note] : NoteColorMap[note];
+export default function NoteCard({ note, octave, incidental, lyric, className }: NoteProps) {
+  const colorClass = incidental === Incidental.Sharp ? SharpColorMap[note] : NoteColorMap[note];
   let label = note;
   if (incidental === Incidental.Sharp) {
     label += "#";

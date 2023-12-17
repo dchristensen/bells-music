@@ -1,19 +1,23 @@
 import { MusicalNoteIcon } from "@heroicons/react/24/outline";
 import type { LoaderFunction, MetaFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "@remix-run/react";
+import Handbell from "~/components/Handbell";
 import songs from "~/data/songs";
-import type { Library, SongInfo } from "~/models";
-import Handbell from "../components/Handbell";
+import { Library, SongInfo } from "~/models";
 
-export let meta: MetaFunction = () => {
-  return {
-    title: "Christmas Bells Songs",
-    description: "Music to play Christmas songs on bells.",
-  };
+export const meta: MetaFunction = () => {
+  return [
+    {
+      title: "Christmas Bells Songs",
+    },
+    {
+      name: "description",
+      content: "Music to play Christmas songs on bells.",
+    },
+  ];
 };
 
-export let loader: LoaderFunction = async () => {
+export const loader: LoaderFunction = async () => {
   return songs;
 };
 
@@ -49,7 +53,7 @@ function Header() {
 }
 
 function CardGrid() {
-  let data = useLoaderData<Library>();
+  const data = useLoaderData<Library>();
 
   return (
     <div className="py-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
